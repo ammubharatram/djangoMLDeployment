@@ -1,5 +1,8 @@
 # Django ML Deployment
 
+Here is a basic ML App serving predictions of flower which has learned based on Iris Dataset.
+
+
 To run the app:
 1. First clone the repository using:
 
