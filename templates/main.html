@@ -5,21 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iris Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #444;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Iris Django Application</h1>
-    <hr>
-    {% if result %}
-        <h1>Flower you're trying to classify is {{result}}</h1>
-    {% endif %}
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        Sepal Length : <input type="number" name="sepal_length" required><br>
-        Sepal Width : <input type="number" name="sepal_width" required><br>
-        Petal Length : <input type="number" name="petal_length" required><br>
-        Petal Width : <input type="number" name="petal_width" required><br>
-        <input type="submit">
-    </form>
+    <div class="container">
+        <h1>Iris Django Application</h1>
+        <hr>
+        {% if result %}
+            <h1>Flower you're trying to classify is {{ result }}</h1>
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="sepal_length">Sepal Length:</label>
+            <input type="number" name="sepal_length" id="sepal_length" required><br>
+            <label for="sepal_width">Sepal Width:</label>
+            <input type="number" name="sepal_width" id="sepal_width" required><br>
+            <label for="petal_length">Petal Length:</label>
+            <input type="number" name="petal_length" id="petal_length" required><br>
+            <label for="petal_width">Petal Width:</label>
+            <input type="number" name="petal_width" id="petal_width" required><br>
+            <input type="submit" value="Classify">
+        </form>
+    </div>
 </body>
 </html>
